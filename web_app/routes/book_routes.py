@@ -18,7 +18,7 @@ def list_books():
 
     book_records = Book.query.all()
     print(book_records)
-    books = parse_record(book_records)
+    books = parse_records(book_records)
     return jsonify(books)
 
 
@@ -32,7 +32,7 @@ def list_books_for_humans():
 
     book_records = Book.query.all()
     print(book_records)
-    books = parse_record(book_records)
+    books = parse_records(book_records)
     return render_template("books.html", message="Here's some books", books=books)
 
 
@@ -45,11 +45,11 @@ def new_book():
 def create_book():
     print("FORM DATA:", dict(request.form))
 
-    new_book = Book(title=request.form["title"],
+    new_book = Book(title=request.form["book_title"],
                     author_id=request.form["author_name"])
     db.session.add(new_book)
     db.session.commit()
 
-    return jsonify({"message": "BOOK CREATED OK (TODO)", "book": dict(request.form)})
-    flash(f"Book '{new_book.title}' created successfully!", "success")
-    return redirect(f"/books")
+    return jsonify({"message": "BOOK CREATED OK", "book": dict(request.form)})
+    #flash(f"Book '{new_book.title}' created successfully!", "success")
+    # return redirect(f"/books")
