@@ -12,7 +12,7 @@ API_KEY = os.getenv('BASILICA_API_KEY')
 connection = Connection(API_KEY)
 print('CONNECTION', type(connection))
 
-if if __name__ == "__main__":
+if __name__ == "__main__":
     pass
 
 sentences = [

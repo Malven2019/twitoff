@@ -22,7 +22,7 @@ api = API(auth)
 print('API CLIENT:', api)
 # Get the User object for twitter...
 
-if if __name__ == "__main__":
+if __name__ == "__main__":
 
     user = api.get_user('elonmusk')
     print('TWITTER USER', type(user))  # <class 'tweepy.models.User'>
